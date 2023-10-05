@@ -31,7 +31,7 @@
             background-color: green;
             color: white;
 
-            height: 250px;
+            height: 550px;
 
             /* 내용물을 정렬 */
             display: flex;
@@ -39,12 +39,22 @@
             align-items: center;
             justify-content: center;
 
-            background-image: url('https://images.unsplash.com/photo-1511992243105-2992b3fd0410?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmwGNz%2FbtswgWfPtWV%2FLcakYRJkKhpmdJ5Lnawmwk%2Fimg.gif');
             background-position: center;
             background-size: cover;
         }
 
         .mytitle>button {
+            background-color: rgb(99, 73, 2);
+            color: white;
+            border: none;
+            font-size: 70px;
+            width: 500px;
+            height: 150px;
+            margin-bottom: 300px; 
+
+
+/*             
             width: 150px;
             height: 50px;
             background-color: transparent;
@@ -55,7 +65,7 @@
             border-radius: 5px;
 
             border: 1px solid white;
-            margin-top: 20px;
+            margin-top: 20px; */
         }
 
         .mycards {
@@ -82,6 +92,16 @@
 
         .mybtn>button {
             margin-right: 10px;
+        }
+
+        /* 메인 타이틀 버튼 크기 */
+        .addbtn {
+            background-color: skyblue;
+            color: white;
+            border: none;
+
+            width: 100px;
+            height: 30px;
         }
     </style>
 
@@ -172,9 +192,9 @@
 
 <body>
     <div class="mytitle">
-        <h1>나만의 추억 앨범</h1>
-        <p>현재 서울의 미세먼지 : <span id="msg">나쁨</span></p>
-        <button id="savebtn">추억 저장하기</button>
+        <!-- <h1>나만의 추억 앨범</h1>
+        <p>현재 서울의 미세먼지 : <span id="msg">나쁨</span></p> -->
+        <button id="savebtn">팀원 추가</button>
     </div>
 
     <div class="mypostbox" id="postingbox">
@@ -208,7 +228,7 @@
 
     <div class="mycards">
         <div id="card" class="row row-cols-1 row-cols-md-4 g-4">
-<!-- 
+            <!-- 
             <div class="col">
                 <div class="card h-100">
                     <img src="https://images.unsplash.com/photo-1446768500601-ac47e5ec3719?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1446&q=80"
@@ -263,7 +283,7 @@
             </div>
              -->
         </div>
-    </div> 
+    </div>
 
 </body>
 
