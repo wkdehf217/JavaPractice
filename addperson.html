@@ -134,27 +134,42 @@
         const db = getFirestore(app);
 
 
+        // 팀원정보 DB 추가 버튼
         $("#postingbtn").click(async function () {
+            let member_name = $('#member_name').val();
+            let mbti = $('#mbti').val();
+            let explanation = $('#explanation').val();
+            let advantage = $('#advantage').val();
+            let cooperation_style = $('#cooperation_style').val();
+            let blog = $('#blog').val();
             let image = $('#image').val();
-            let title = $('#title').val();
-            let content = $('#content').val();
-            let date = $('#date').val();
 
             let doc = {
+                'member_name': member_name,
+                'mbti': mbti,
+                'explanation': explanation,
+                'advantage': advantage,
+                'cooperation_style': cooperation_style,
+                'blog': blog,
                 'image': image,
-                'title': title,
-                'content': content,
-                'date': date,
             };
-            await addDoc(collection(db, "albums"), doc);
+            await addDoc(collection(db, "team_member"), doc);
             alert('저장 완료!');
             window.location.reload();
 
         })
 
-        $("#savebtn").click(async function () {
-            $('#postingbox').toggle();
+        $("#closebtn").click(async function () {
+            if (!confirm("취소하시겠습니까?")) {
+                // 취소(아니오) 버튼 클릭 시 이벤트
+
+            } else {
+                // 확인(예) 버튼 클릭 시 이벤트
+                window.close();
+            }
         })
+
+
 
         let url = "http://spartacodingclub.shop/sparta_api/seoulair";
         fetch(url).then(res => res.json()).then(data => {
