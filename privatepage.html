@@ -1,70 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <title>Document</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
 
-        * {
-            font-family: 'Gowun Dodum', sans-serif;
-        }
+      * {
+        font-family: "Gowun Dodum", sans-serif;
+      }
 
-        .mytitle {
-            height: 250px;
-            color: white;
+      .mytitle {
+        height: 250px;
+        color: white;
 
-            background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmwGNz%2FbtswgWfPtWV%2FLcakYRJkKhpmdJ5Lnawmwk%2Fimg.gif');
-            background-position: center;
-            background-size: cover;
-        }
+        background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmwGNz%2FbtswgWfPtWV%2FLcakYRJkKhpmdJ5Lnawmwk%2Fimg.gif");
+        background-position: center;
+        background-size: cover;
+      }
 
-        .imagebox {
-           background-color: green;
-            width: 500px;
-            margin: 50px auto 50px auto;
-            float: left;
-        }
-        .intro1{
-            margin: 50px auto 50px auto;
-            float: left;
-        }
+      .main {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .imagebox {
+        background-color: green;
+        width: 500px;
+      }
+      .intro1 {
+        display: inline-block;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div class="mytitle">
-    </div>
-
-    <div class="imagebox">
-        <div class="card" style="width: 18rem;">
-            <img src="C:\Users\alstj\Desktop\KakaoTalk_20231004_092530255.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">이름</h5>
-              <p class="card-text">김민석</p>
-            </div>
+  <body>
+    <div class="mytitle"></div>
+    <div class="main">
+      <div class="imagebox">
+        <div class="card" style="width: 18rem">
+          <img
+            src="https://teamsparta.notion.site/image/https%3A%2F%2Fprod-files-secure.s3.us-west-2.amazonaws.com%2F83c75a39-3aba-4ba4-a792-7aefe4b07895%2F7a5cbd3f-b94e-4a09-af2e-77427ef1ae1f%2FKakaoTalk_Photo_2023-10-03-18-01-18.jpeg?table=block&id=0f9037b4-ced1-490b-95a8-a1cd7a390915&spaceId=83c75a39-3aba-4ba4-a792-7aefe4b07895&width=2000&userId=&cache=v2"
+            class="card-img-top"
+            alt="..."
+          />
+          <div class="card-body">
+            <h5 class="card-title">이름</h5>
+            <p class="card-text">김민석</p>
           </div>
-    </div>
-    <div class = "intro1">
-        <div class="input-group mb-3">
-            <span class="input-group-text">MBTI</span>
-            <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGroup1" placeholder="" disabled>
-                <label for="floatingInputGroup1">ENTP</label>
-            </div>
         </div>
+      </div>
+      <div class="intro1">
+        <div class="input-group mb-3">
+          <span class="input-group-text">MBTI</span>
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="floatingInputGroup1"
+              placeholder=""
+              disabled
+            />
+            <label for="floatingInputGroup1">ENTP</label>
+          </div>
+        </div>
+      </div>
     </div>
-
-
-    </div>
-
-
-</body>
-
+  </body>
 </html>
