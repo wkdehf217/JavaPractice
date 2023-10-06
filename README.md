@@ -5,10 +5,14 @@
 --------개인페이지------------
 
 --------팀원추가페이지--------
+
 -10.06 해야할일
 1. 상단 글씨 수정
+
 2. 
 --------DB------------------
+
+   
 // Firebase SDK 라이브러리 가져오기
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
