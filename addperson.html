@@ -143,6 +143,20 @@
             let blog = $('#blog').val();
             let image = $('#image').val();
 
+            //이름으로 중복검사
+            let docs = await getDocs(collection(db, "team_member"));
+            docs.forEach((doc) => {
+            let row = doc.data();
+
+            let name_check = row['member_name'];
+            if(name_check == member_name){
+                alert('중복된 이름입니다!');
+                window.location.reload();
+            }else{
+
+            }
+            });
+
             let doc = {
                 'member_name': member_name,
                 'mbti': mbti,
