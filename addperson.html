@@ -102,14 +102,20 @@
             height: 30px;
         }
     </style>
-
+    
     <script type="module">
         // Firebase SDK 라이브러리 가져오기
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        import { getStorage, ref } from "firebase/storage";
+
+        
+        // // 이미지, 오디오 저장을 위한 storage 가져오기
+        import { getStorage, ref, uploadString } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
+        // import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+        // import firebaseApp from "../../Firebase";
+
 
         // Firebase 구성 정보 설정
         const firebaseConfig = {
@@ -126,9 +132,10 @@
         // Firebase 인스턴스 초기화
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-
-        // const storage = getStorage();
-        // const mountainsRef = ref(storage, 'mountains.jpg');
+        const storage = getStorage();
+        // const storageRef = ref(storage);
+        // const [imageUpload, setImageUpload] = useState(null);
+        // const [imageList, setImageList] = useState([]);
 
         // 팀원정보 DB 추가 버튼
         $("#postingbtn").click(async function () {
@@ -169,11 +176,15 @@
                 'blog': blog,
                 'image': image,
             };
+            const fileRef = ref(storageService, `${userObj.uid}/${uuidv4()}`);
+            const response = await uploadString(fileRef, photoSource, 'image');
+
             await addDoc(collection(db, "team_member"), doc);
             alert('저장 완료!');
             window.location.reload();
         })
 
+        // 취소버튼
         $("#closebtn").click(async function () {
             if (!confirm("취소하시겠습니까?")) {
                 // 취소(아니오) 버튼 클릭 시 이벤트
@@ -183,7 +194,6 @@
                 window.close();
             }
         })
-
 
     </script>
 </head>
@@ -246,10 +256,6 @@
             <label for="floatingInput">예&#41;항상 노력합니다!</label>
         </div>
 
-
-
-
-
         <h5>블로그 하이퍼링크</h5>
         <div class="form-floating mb-3">
             <input type="url" class="form-control" id="blog" placeholder="name@example.com">
@@ -257,17 +263,16 @@
         </div>
 
         <h5>이미지</h5>
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="image" placeholder="name@example.com">
-            <label for="floatingInput">이곳에 이미지를 넣어주세요</label>
+        <div>
+            <input type="file" class="form-control" id="image">
         </div>
-
 
         <div class="mybtn">
             <button id="postingbtn" type="button" class="btn btn-success">기록하기</button>
             <button id="closebtn" type="button" class="btn btn-success">닫기</button>
         </div>
 
+       
 
 </body>
 
