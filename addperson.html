@@ -17,7 +17,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
-    <title>나만의 추억앨범</title>
+    <title>부끄러움이 많은 사람들</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
@@ -54,20 +54,6 @@
             height: 150px;
             margin-bottom: 300px;
             border-radius: 15px;
-
-
-            /*             
-            width: 150px;
-            height: 50px;
-            background-color: transparent;
-            border: none;
-            color: white;
-            font-size: 18px;
-            font-weight: bold;
-            border-radius: 5px;
-
-            border: 1px solid white;
-            margin-top: 20px; */
         }
 
         .mycards {
@@ -85,8 +71,8 @@
         }
 
         .form-floating {
-            margin-top: 30px;
-            /* margin-bottom: 45px; */
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
         .mybtn {
@@ -95,7 +81,7 @@
             align-items: center;
             justify-content: center;
 
-            margin-top: 10px;
+            margin-top: 30px;
         }
 
         .mybtn>button {
@@ -123,7 +109,7 @@
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
+        import { getStorage, ref } from "firebase/storage";
 
         // Firebase 구성 정보 설정
         const firebaseConfig = {
@@ -141,7 +127,8 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-
+        // const storage = getStorage();
+        // const mountainsRef = ref(storage, 'mountains.jpg');
 
         // 팀원정보 DB 추가 버튼
         $("#postingbtn").click(async function () {
@@ -158,6 +145,7 @@
                 alert('필수 입력 항목입니다!');
                 window.location.reload();
             }
+
             // 이름으로 중복검사
             let docs = await getDocs(collection(db, "team_member"));
             docs.forEach((doc) => {
@@ -202,82 +190,76 @@
 
 <body>
     <div class="mytitle">
-        <!-- <h1>나만의 추억 앨범</h1>
-        <p>현재 서울의 미세먼지 : <span id="msg">나쁨</span></p> -->
         <button>팀원 추가</button>
     </div>
 
     <div class="mypostbox" id="postingbox">
-
+        <h5>이름</h5>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="member_name" placeholder="예&#41;홍길동">
-            <label for="floatingInput">이름</label>
+            <input type="text" class="form-control" id="member_name" placeholder="">
+            <label for="floatingInput">예&#41;홍길동</label>
         </div>
-
-        <!-- <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="mbti" placeholder="name@example.com">
-            <label for="floatingInput">MBTI</label>
-        </div> -->
-
 
         <!-- 드롭박스 -->
         <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">MBTI</label>
             <select class="form-select" id="mbti">
-            <option selected>선택</option>
-            <option value="INTJ">INTJ</option>
-            <option value="INTP">INTP</option>
-            <option value="ENTJ">ENTJ</option>
-            <option value="ENTP">ENTP</option>
-            <option value="INFJ">INFJ</option>
-            <option value="INFP">INFP</option>
-            <option value="ENFJ">ENFJ</option>
-            <option value="ENFP">ENFP</option>
-            <option value="ISTJ">ISTJ</option>
-            <option value="ISFJ">ISFJ</option>
-            <option value="ESTJ">ESTJ</option>
-            <option value="ESFJ">ESFJ</option>
-            <option value="ISTP">ISTP</option>
-            <option value="ISFP">ISFP</option>
-            <option value="ESTP">ESTP</option>
-            <option value="ESFP">ESFP</option>
+                <option selected>선택</option>
+                <option value="INTJ">INTJ</option>
+                <option value="INTP">INTP</option>
+                <option value="ENTJ">ENTJ</option>
+                <option value="ENTP">ENTP</option>
+                <option value="INFJ">INFJ</option>
+                <option value="INFP">INFP</option>
+                <option value="ENFJ">ENFJ</option>
+                <option value="ENFP">ENFP</option>
+                <option value="ISTJ">ISTJ</option>
+                <option value="ISFJ">ISFJ</option>
+                <option value="ESTJ">ESTJ</option>
+                <option value="ESFJ">ESFJ</option>
+                <option value="ISTP">ISTP</option>
+                <option value="ISFP">ISFP</option>
+                <option value="ESTP">ESTP</option>
+                <option value="ESFP">ESFP</option>
             </select>
-            </div>
-            
-
-         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="explanation" placeholder="name@example.com">
-            <label for="floatingInput">자신에 대한 설명</label>
         </div>
-
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="advantage" placeholder="name@example.com">
-            <label for="floatingInput">장점</label>
-        </div>
-
-        <!-- <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="cooperation_style" placeholder="name@example.com">
-            <label for="floatingInput">협업 스타일</label>
-        </div>  -->
 
         <!-- 협업스타일 드롭박스 -->
         <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">협업 스타일</label>
             <select class="form-select" id="cooperation_style">
-            <option selected>선택</option>
-            <option value="리더형">리더형</option>
-            <option value="팀원형">팀원형</option>
+                <option selected>선택</option>
+                <option value="리더형">리더형</option>
+                <option value="팀원형">팀원형</option>
             </select>
-            </div>
-
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="blog" placeholder="name@example.com">
-            <label for="floatingInput">블로그 하이퍼링크</label>
         </div>
 
+        <h5>자신에 대한 설명</h5>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="explanation" placeholder="name@example.com">
+            <label for="floatingInput">예&#41;내배캠을 통해 개발자를 꿈꾸는 학생</label>
+        </div>
+
+        <h5>장점</h5>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="advantage" placeholder="name@example.com">
+            <label for="floatingInput">예&#41;항상 노력합니다!</label>
+        </div>
+
+
+
+
+
+        <h5>블로그 하이퍼링크</h5>
+        <div class="form-floating mb-3">
+            <input type="url" class="form-control" id="blog" placeholder="name@example.com">
+            <label for="floatingInput">예&#41;name@example.com</label>
+        </div>
+
+        <h5>이미지</h5>
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="image" placeholder="name@example.com">
-            <label for="floatingInput">이미지</label>
+            <label for="floatingInput">이곳에 이미지를 넣어주세요</label>
         </div>
 
 
@@ -285,7 +267,7 @@
             <button id="postingbtn" type="button" class="btn btn-success">기록하기</button>
             <button id="closebtn" type="button" class="btn btn-success">닫기</button>
         </div>
- 
+
 
 </body>
 
