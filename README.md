@@ -22,15 +22,15 @@
 
          // Firebase 구성 정보 설정
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-         const firebaseConfig = {
-           apiKey: "AIzaSyAdF8jWGEra_xDoi-aW95H70i4QASE3Mdw",
-           authDomain: "a-11-6fc07.firebaseapp.com",
-           projectId: "a-11-6fc07",
-           storageBucket: "a-11-6fc07.appspot.com",
-           messagingSenderId: "643168240333",
-           appId: "1:643168240333:web:389cc9758d97e1da20df84",
-           measurementId: "G-V7YRN9XPMF"
-         };
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7n4rJxoQvx9ZKH3HYxLkEeroMFydeQP0",
+            authDomain: "a-11-2e110.firebaseapp.com",
+            projectId: "a-11-2e110",
+            storageBucket: "a-11-2e110.appspot.com",
+            messagingSenderId: "192520789356",
+            appId: "1:192520789356:web:2324b1cdccc9bf383de749",
+            measurementId: "G-P93QHPYJC8"
+        };
 
 
         // Firebase 인스턴스 초기화
