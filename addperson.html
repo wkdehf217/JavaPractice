@@ -46,14 +46,14 @@
 
         /* 회원추가페이지 상단 글자 변경 */
         .mytitle>button {
-            background-color: rgb(99, 73, 2);
-            color: white;
+            background-color: rgba(255, 255, 255, 0.747);
+            color: rgb(0, 0, 0);
             border: none;
             font-size: 70px;
-            width: 500px;
+            width: 400px;
             height: 150px;
             margin-bottom: 300px;
-
+            border-radius: 15px;
 
 
             /*             
@@ -76,11 +76,17 @@
         }
 
         .mypostbox {
-            width: 500px;
-            margin: 20px auto 20px auto;
-            padding: 20px 20px 20px 20px;
+            width: 750px;
+            margin: 0px auto 60px auto;
+            padding: 20px 20px 0px 20px;
             border-radius: 5px;
-            box-shadow: 0px 0px 3px 0px blue;
+            /* 포스팅박스 테두리 삭제 box-shadow: 0px 0px 3px 0px blue; */
+
+        }
+
+        .form-floating {
+            margin-top: 30px;
+            /* margin-bottom: 45px; */
         }
 
         .mybtn {
@@ -94,6 +100,10 @@
 
         .mybtn>button {
             margin-right: 10px;
+            width: 300px;
+            height: 50px;
+            /* background-color: rgb(99, 73, 2); */
+            /* 저장하기, 취소 버튼 색 바꿔야할것같아요!!!*/
         }
 
         /* 메인 타이틀 버튼 크기 */
@@ -143,18 +153,23 @@
             let blog = $('#blog').val();
             let image = $('#image').val();
 
-            //이름으로 중복검사
+            // 이름은 필수 입력 항목
+            if (member_name == '') {
+                alert('필수 입력 항목입니다!');
+                window.location.reload();
+            }
+            // 이름으로 중복검사
             let docs = await getDocs(collection(db, "team_member"));
             docs.forEach((doc) => {
-            let row = doc.data();
+                let row = doc.data();
 
-            let name_check = row['member_name'];
-            if(name_check == member_name){
-                alert('중복된 이름입니다!');
-                window.location.reload();
-            }else{
+                let name_check = row['member_name'];
+                if (name_check == member_name) {
+                    alert('중복된 이름입니다!');
+                    window.location.reload();
+                } else {
 
-            }
+                }
             });
 
             let doc = {
@@ -195,7 +210,7 @@
     <div class="mypostbox" id="postingbox">
 
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="member_name" placeholder="name@example.com">
+            <input type="text" class="form-control" id="member_name" placeholder="예&#41;홍길동">
             <label for="floatingInput">이름</label>
         </div>
 
@@ -231,8 +246,8 @@
 
 
         <div class="mybtn">
-            <button id="postingbtn" type="button" class="btn btn-primary">기록하기</button>
-            <button id="closebtn" type="button" class="btn btn-primary">닫기</button>
+            <button id="postingbtn" type="button" class="btn btn-success">기록하기</button>
+            <button id="closebtn" type="button" class="btn btn-success">닫기</button>
         </div>
     </div>
 
