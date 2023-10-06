@@ -170,41 +170,6 @@
         })
 
 
-
-        let url = "http://spartacodingclub.shop/sparta_api/seoulair";
-        fetch(url).then(res => res.json()).then(data => {
-            let mise = data['RealtimeCityAir']['row'][0]['IDEX_NM'];
-            $('#msg').text(mise);
-        })
-
-
-        let docs = await getDocs(collection(db, "albums"));
-        docs.forEach((doc) => {
-            let row = doc.data();
-
-            let image = row['image'];
-            let title = row['title'];
-            let content = row['content'];
-            let date = row['date'];
-
-            let temp_html =
-                `<div class="col">
-                <div class="card h-100">
-                    <img src="${image}"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">${title}</h5>
-                        <p class="card-text">${content}</p>
-                    </div>
-                    <div class="card-footer">
-                        <small class="text-muted">${date}</small>
-                    </div>
-                </div>
-            </div>`;
-
-            $('#card').append(temp_html);
-        });
-
     </script>
 </head>
 
@@ -255,7 +220,7 @@
 
         <div class="mybtn">
             <button id="postingbtn" type="button" class="btn btn-primary">기록하기</button>
-            <button type="button" class="btn btn-primary">닫기</button>
+            <button id="closebtn" type="button" class="btn btn-primary">닫기</button>
         </div>
     </div>
 
