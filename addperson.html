@@ -101,6 +101,11 @@
             width: 100px;
             height: 30px;
         }
+
+        .form-select {
+            margin: 0px auto 10px auto;
+        }
+
     </style>
 
     <script type="module">
@@ -185,6 +190,9 @@
         })
 
 
+
+
+
     </script>
 </head>
 
@@ -200,9 +208,10 @@
             <label for="floatingInput">예&#41;홍길동</label>
         </div>
 
+
         <!-- 드롭박스 -->
+        <h5>MBTI</h5>
         <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">MBTI</label>
             <select class="form-select" id="mbti">
                 <option selected>선택</option>
                 <option value="INTJ">INTJ</option>
@@ -225,14 +234,14 @@
         </div>
 
         <!-- 협업스타일 드롭박스 -->
+        <h5>협업 스타일</h5>
         <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">협업 스타일</label>
             <select class="form-select" id="cooperation_style">
                 <option selected>선택</option>
                 <option value="리더형">리더형</option>
                 <option value="팀원형">팀원형</option>
             </select>
-        </div>
+        </div> 
 
         <h5>자신에 대한 설명</h5>
         <div class="form-floating mb-3">
