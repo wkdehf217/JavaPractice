@@ -132,6 +132,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
+
         $("#postingbtn").click(async function () {
             let image = $('#image').val();
             let title = $('#title').val();
@@ -195,7 +196,7 @@
     <div class="mytitle">
         <!-- <h1>나만의 추억 앨범</h1>
         <p>현재 서울의 미세먼지 : <span id="msg">나쁨</span></p> -->
-        <button id="savebtn">팀원 추가</button>
+        <button>팀원 추가</button>
     </div>
 
     <div class="mypostbox" id="postingbox">
