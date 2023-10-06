@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Guestbook test</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link
@@ -13,26 +13,68 @@
       crossorigin="anonymous"
     />
     <style>
-        .guestbook_name{
-            display:  inline-block;
-            width: 50px;
-            background-color: green;
-        }
-        .guestbook_date{
-            display:  inline-block;
-            width: 300px;
-            background-color: red;
-        }
-    </style>
-</head>
-<body>
-    <div id = "guestbook">
-        <div class = "guestbook_content">
-            <div class ="guestbook_name">김민성</div>
-            <div class ="guestbook_date">2023/10/14</div>
-        </div>
-
-    </div>
+      .guestbook {
+        display: flex;
+        justify-content: center;
+      }
+      .guestbook_content {
+        justify-content: center;
+        width: 800px;
+        height: 50px;
+        margin: 10px 30px 10px 30px;
+      }
+      
+      .guestbook_name {
+        display: inline-block;
+        width: 50px;
+        /*background-color: green;*/
+      }
+      .guestbook_date {
+        display: inline-block;
+        width: 300px;
+        /*background-color: red;*/
+      }
+      .maker_information{
+        display: flex;
+        flex-direction: column;
+      }
+      .maker_information > *{
+        margin : 0px 10px 10px 10px
+      }
+      .guestbook_maker{
+        display: flex;
+        justify-content: center;
+        padding-top : 5px;
     
-</body>
+      }
+      .maker_text{
+        width : 550px;
+        height: 200px;
+      }
+      .register_btn{
+        display: inline;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="guestbook">
+      <div class="guestbook_content">
+        <div class="guestbook_name">김민성</div>
+        <div class="guestbook_date">2023/10/14</div>
+        <div class="guestbook_text">안녕하세요 반갑습니다! 놀러왔어요.</div>
+      </div>
+    </div>
+
+    <div class="guestbook_maker">
+      <div class="maker_information">
+        <input class="maker_name" placeholder="닉네임" />
+        <input class="maker_password" placeholder="비밀번호" />
+      </div>
+      <div class ="maker_content">
+        <input class = "maker_text" placeholder="내용을 입력하세요."/>
+        <button class ="register_btn" type="button" class="btn btn-secondary btn-lg">팀원 추가</button>
+      </div>
+    </div>
+  </body>
 </html>
