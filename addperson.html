@@ -17,20 +17,23 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
 
+    
     <title>부끄러움이 많은 사람들</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+      
+  @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+        
 
         * {
-            font-family: 'Gowun Dodum', sans-serif;
+            font-family: 'Poor Story', cursive;
         }
 
         .mytitle {
-            background-color: green;
-            color: white;
-
+            background-color: rgba(255, 255, 255, 0.747);;
+            color: rgba(253, 212, 218, 0.773);
             height: 550px;
 
             /* 내용물을 정렬 */
@@ -39,7 +42,7 @@
             align-items: center;
             justify-content: center;
 
-            background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmwGNz%2FbtswgWfPtWV%2FLcakYRJkKhpmdJ5Lnawmwk%2Fimg.gif');
+            background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlrbAL%2Fbtsxp2ZAW6b%2FcnmFgDeSC1tTgtgWtXLjH1%2Fimg.gif');
             background-position: center;
             background-size: cover;
         }
@@ -76,6 +79,7 @@
         }
 
         .mybtn {
+            
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -85,9 +89,11 @@
         }
 
         .mybtn>button {
+            background-color: rgb(198, 220, 228);
             margin-right: 10px;
             width: 300px;
             height: 50px;
+            
             /* background-color: rgb(99, 73, 2); */
             /* 저장하기, 취소 버튼 색 바꿔야할것같아요!!!*/
         }
@@ -106,21 +112,17 @@
             margin: 0px auto 10px auto;
         }
 
+        body{
+            background-color: rgb(255, 230, 230);
+        }
     </style>
-    
+
     <script type="module">
         // Firebase SDK 라이브러리 가져오기
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
         import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-        
-        // // 이미지, 오디오 저장을 위한 storage 가져오기
-        import { getStorage, ref, uploadString } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
-        // import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
-        // import firebaseApp from "../../Firebase";
-
 
         // Firebase 구성 정보 설정
         const firebaseConfig = {
@@ -133,14 +135,9 @@
             measurementId: "G-P93QHPYJC8"
         };
 
-
         // Firebase 인스턴스 초기화
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-        const storage = getStorage();
-        // const storageRef = ref(storage);
-        // const [imageUpload, setImageUpload] = useState(null);
-        // const [imageList, setImageList] = useState([]);
 
         // 팀원정보 DB 추가 버튼
         $("#postingbtn").click(async function () {
@@ -155,7 +152,7 @@
             // 이름은 필수 입력 항목
             if (member_name == '') {
                 alert('필수 입력 항목입니다!');
-                window.location.reload();
+                //window.location.reload();
             }
 
             // 이름으로 중복검사
@@ -181,9 +178,7 @@
                 'blog': blog,
                 'image': image,
             };
-            const fileRef = ref(storageService, `${userObj.uid}/${uuidv4()}`);
-            const response = await uploadString(fileRef, photoSource, 'image');
-
+            
             await addDoc(collection(db, "team_member"), doc);
             alert('저장 완료!');
             window.location.reload();
@@ -216,14 +211,14 @@
         <h5>이름</h5>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="member_name" placeholder="name@example.com">
-            <label for="floatingInput">예&#41;홍길동</label>
+            <label for="floatingInput">예&#41; 홍길동</label>
         </div>
 
 
         <h5>자신에 대한 설명</h5>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="explanation" placeholder="name@example.com">
-            <label for="floatingInput">예&#41;내배캠을 통해 개발자를 꿈꾸는 학생</label>
+            <label for="floatingInput">예&#41; 내배캠을 통해 개발자를 꿈꾸는 학생</label>
         </div>
 
         <!-- 드롭박스 -->
@@ -258,37 +253,38 @@
                 <option value="리더형">리더형</option>
                 <option value="팀원형">팀원형</option>
             </select>
-        </div> 
+        </div>
 
         <h5>자신에 대한 설명</h5>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="explanation" placeholder="name@example.com">
-            <label for="floatingInput">예&#41;내배캠을 통해 개발자를 꿈꾸는 학생</label>
+            <label for="floatingInput">예&#41; 내배캠을 통해 개발자를 꿈꾸는 학생</label>
         </div>
 
         <h5>장점</h5>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" id="advantage" placeholder="name@example.com">
-            <label for="floatingInput">예&#41;항상 노력합니다!</label>
+            <label for="floatingInput">예&#41; 항상 노력합니다!</label>
         </div>
 
         <h5>블로그 하이퍼링크</h5>
         <div class="form-floating mb-3">
             <input type="url" class="form-control" id="blog" placeholder="name@example.com">
-            <label for="floatingInput">예&#41;name@example.com</label>
+            <label for="floatingInput">예&#41; name@example.com</label>
         </div>
 
         <h5>이미지</h5>
-        <div>
-            <input type="file" class="form-control" id="image">
+        <div class="form-floating mb-3">
+            <input type="url" class="form-control" id="image" placeholder="name@example.com">
+            <label for="floatingInput">이미지 링크를 넣어주세요</label>
         </div>
 
-        <div class="mybtn">
-            <button id="postingbtn" type="button" class="btn btn-success">기록하기</button>
+        <div class="mybtn">            
+            <button id="postingbtn" type="button" class="btn btn-secondary">저장하기</button>
             <button id="closebtn" type="button" class="btn btn-success">닫기</button>
         </div>
 
-       
+
 
 </body>
 
