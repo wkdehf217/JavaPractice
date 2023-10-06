@@ -52,10 +52,10 @@
             font-size: 70px;
             width: 500px;
             height: 150px;
-            margin-bottom: 300px;
+            margin-bottom: 300px; 
 
 
-            /*             
+/*             
             width: 150px;
             height: 50px;
             background-color: transparent;
@@ -108,52 +108,29 @@
 
     <script type="module">
 
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
 
-        // Your web app's Firebase configuration
+        // Firebase 구성 정보 설정
         // For Firebase JS SDK v7.20.0 and later, measurementId is optional
         const firebaseConfig = {
-            apiKey: "AIzaSyAdF8jWGEra_xDoi-aW95H70i4QASE3Mdw",
-            authDomain: "a-11-6fc07.firebaseapp.com",
-            projectId: "a-11-6fc07",
-            storageBucket: "a-11-6fc07.appspot.com",
-            messagingSenderId: "643168240333",
-            appId: "1:643168240333:web:389cc9758d97e1da20df84",
-            measurementId: "G-V7YRN9XPMF"
+            apiKey: "AIzaSyDmOmAHF0tTxLNxs5iQAUO8FGXdOSifkKk",
+            authDomain: "sparta-42331.firebaseapp.com",
+            projectId: "sparta-42331",
+            storageBucket: "sparta-42331.appspot.com",
+            messagingSenderId: "756996925390",
+            appId: "1:756996925390:web:09ca83e26e825bb145ad9f",
+            measurementId: "G-SVCK5M1B5R"
         };
 
-        // Initialize Firebase
+
+        // Firebase 인스턴스 초기화
         const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-
-        // // Firebase SDK 라이브러리 가져오기
-        // import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-        // import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        // import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-        // import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
-
-
-        // // Firebase 구성 정보 설정
-        // // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        // const firebaseConfig = {
-        //     apiKey: "AIzaSyDmOmAHF0tTxLNxs5iQAUO8FGXdOSifkKk",
-        //     authDomain: "sparta-42331.firebaseapp.com",
-        //     projectId: "sparta-42331",
-        //     storageBucket: "sparta-42331.appspot.com",
-        //     messagingSenderId: "756996925390",
-        //     appId: "1:756996925390:web:09ca83e26e825bb145ad9f",
-        //     measurementId: "G-SVCK5M1B5R"
-        // };
-
-
-        // // Firebase 인스턴스 초기화
-        // const app = initializeApp(firebaseConfig);
-        // const db = getFirestore(app);
+        const db = getFirestore(app);
 
         $("#postingbtn").click(async function () {
             let image = $('#image').val();
