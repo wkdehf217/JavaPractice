@@ -105,9 +105,8 @@
         .form-select {
             margin: 0px auto 10px auto;
         }
-
     </style>
-    
+
     <script type="module">
         // Firebase SDK 라이브러리 가져오기
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
@@ -115,11 +114,8 @@
         import { collection, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
         import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
-        
         // // 이미지, 오디오 저장을 위한 storage 가져오기
-        import { getStorage, ref, uploadString } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
-        // import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
-        // import firebaseApp from "../../Firebase";
+        import { getStorage, ref, uploadString, uploadBytes, listAll, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-storage.js";
 
 
         // Firebase 구성 정보 설정
@@ -137,10 +133,16 @@
         // Firebase 인스턴스 초기화
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
+
         const storage = getStorage();
-        // const storageRef = ref(storage);
-        // const [imageUpload, setImageUpload] = useState(null);
-        // const [imageList, setImageList] = useState([]);
+        
+        const imageListRef = ref(storage, "images/");
+        
+        //const storageRef = ref(storage,'some-child');
+
+
+
+
 
         // 팀원정보 DB 추가 버튼
         $("#postingbtn").click(async function () {
@@ -181,9 +183,26 @@
                 'blog': blog,
                 'image': image,
             };
-            const fileRef = ref(storageService, `${userObj.uid}/${uuidv4()}`);
-            const response = await uploadString(fileRef, photoSource, 'image');
 
+            
+                //if (imageUpload === null) return;
+
+                const imageRef = ref(storage, `images/${image}`);
+                uploadBytes(imageRef, image).then((snapshot) => {
+                    getDownloadURL(snapshot.ref).then((url) => {
+                        setImageList((prev) => [...prev, url]);
+                    });
+                });
+            
+            
+                listAll(imageListRef).then((response) => {
+                    response.items.forEach((item) => {
+                        getDownloadURL(item).then((url) => {
+                            setImageList((prev) => [...prev, url]);
+                        });
+                    });
+                });
+            
             await addDoc(collection(db, "team_member"), doc);
             alert('저장 완료!');
             window.location.reload();
@@ -252,7 +271,7 @@
                 <option value="리더형">리더형</option>
                 <option value="팀원형">팀원형</option>
             </select>
-        </div> 
+        </div>
 
         <h5>자신에 대한 설명</h5>
         <div class="form-floating mb-3">
@@ -282,7 +301,7 @@
             <button id="closebtn" type="button" class="btn btn-success">닫기</button>
         </div>
 
-       
+
 
 </body>
 
