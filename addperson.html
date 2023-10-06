@@ -214,12 +214,38 @@
             <label for="floatingInput">이름</label>
         </div>
 
-        <div class="form-floating mb-3">
+        <!-- <div class="form-floating mb-3">
             <input type="email" class="form-control" id="mbti" placeholder="name@example.com">
             <label for="floatingInput">MBTI</label>
-        </div>
+        </div> -->
 
-        <div class="form-floating mb-3">
+
+        <!-- 드롭박스 -->
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">MBTI</label>
+            <select class="form-select" id="mbti">
+            <option selected>선택</option>
+            <option value="INTJ">INTJ</option>
+            <option value="INTP">INTP</option>
+            <option value="ENTJ">ENTJ</option>
+            <option value="ENTP">ENTP</option>
+            <option value="INFJ">INFJ</option>
+            <option value="INFP">INFP</option>
+            <option value="ENFJ">ENFJ</option>
+            <option value="ENFP">ENFP</option>
+            <option value="ISTJ">ISTJ</option>
+            <option value="ISFJ">ISFJ</option>
+            <option value="ESTJ">ESTJ</option>
+            <option value="ESFJ">ESFJ</option>
+            <option value="ISTP">ISTP</option>
+            <option value="ISFP">ISFP</option>
+            <option value="ESTP">ESTP</option>
+            <option value="ESFP">ESFP</option>
+            </select>
+            </div>
+            
+
+         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="explanation" placeholder="name@example.com">
             <label for="floatingInput">자신에 대한 설명</label>
         </div>
@@ -229,10 +255,20 @@
             <label for="floatingInput">장점</label>
         </div>
 
-        <div class="form-floating mb-3">
+        <!-- <div class="form-floating mb-3">
             <input type="email" class="form-control" id="cooperation_style" placeholder="name@example.com">
             <label for="floatingInput">협업 스타일</label>
-        </div>
+        </div>  -->
+
+        <!-- 협업스타일 드롭박스 -->
+        <div class="input-group mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">협업 스타일</label>
+            <select class="form-select" id="cooperation_style">
+            <option selected>선택</option>
+            <option value="리더형">리더형</option>
+            <option value="팀원형">팀원형</option>
+            </select>
+            </div>
 
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="blog" placeholder="name@example.com">
