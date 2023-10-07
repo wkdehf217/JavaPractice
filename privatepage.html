@@ -10,10 +10,12 @@
     <title>Document</title>
 
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap");
+        @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+
+
 
         * {
-            font-family: "Gowun Dodum", sans-serif;
+            font-family: 'Poor Story', cursive;
         }
 
         .title {
@@ -23,39 +25,124 @@
             background-size: cover;
         }
 
-        .main {
+        .profile {
             display: flex;
             flex-direction: row;
-            align-items: center;
             justify-content: center;
+            align-items: flex-start;
+
+            margin: 100px 100px;
         }
 
-        .image {
-            background-color: green;
+        #picture {
+            width: 400px;
+            margin-right: 60px;
+        }
 
-            width: 300px;
+        .introduce>h2 {
+            margin: 0px;
+            font-size: 35px;
+        }
+
+        .introduce>p {
+            font-weight: 300;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        .frame {
+            margin: 30px 150px;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
         }
 
+        .preface {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .advantages {
+            display: flex;
+            justify-content: left;
+
+            margin-left: 100px;
+        }
+
+        .advantages>button {
+            text-align: left;
+            width: 100%;
+        }
+
+        .jobstyle {
+            display: flex;
+            justify-content: left;
+
+            margin-left: 100px;
+        }
+
+        .jobstyle>button {
+            text-align: left;
+            width: 100%;
+        }
+
+        .box21 {
+            margin-left: 100px;
+            padding: 2em;
+            border: solid 2px #A5A19A;
+            background-image: repeating-linear-gradient(-45deg, #f2f3f7 0, #f2f3f7 3px, transparent 3px, transparent 6px)
+            
+        }
+
+        body {
+            background-color: rgb(255, 230, 230);
+        }
     </style>
 </head>
 
 <body>
-    <div class="title"></div>
-    <!-- 이미지 카드 -->
-    <div class="main">
-        <div class="image">
-            <div class="card">
-                <img src="C:\Users\alstj\Desktop\KakaoTalk_20231004_092530255.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">이름</h5>
-                    <p class="card-text">김민석</p>
-                </div>
+    <div class="title"> </div>
+    <div class="frame">
+
+        <div class="preface">
+            <h1>부끄사 개인 소개</h1>
+        </div>
+
+        <div class="profile">
+            <img id="picture" src="https://ca.slack-edge.com/T043597JK8V-U05S9LVU9D0-39a8b2922ea3-512">
+            <div class="introduce">
+                <h2>이름</h2>
+                <p>김민석</p>
+
+                <h2>MBTI</h2>
+                <p>ENTP</p>
+
+                <h2>자기소개</h2>
+                <p>"안녕하세요 김민석입니다." <br>저는 95년생이고 블라블라한 직장을 다니다가 블라블라한 이유로 퇴사하고
+                    현재 스파르타코딩클럽에 국비교육을 지원해 Spring과정을 수강중이에요. 특기는 블라블라이고 블라블라한
+                    취미를 가지고 있습니다. 앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !
+                    앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !
+                    앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !
+                    앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !
+                </p>
             </div>
         </div>
+
+        <div class="advantages">
+            <button type="button" class="btn btn-secondary">내 장점은?</button>
+        </div>
+        <div class="box21">
+            거 죽기 딱 좋은 날씨다.
+        </div>
+
+        <div class="jobstyle">
+            <button type="button" class="btn btn-secondary">내 협업 스타일!</button>
+        </div>
+        <div class="box21">
+            내 꿈은 해적왕
+        </div>
+
     </div>
 </body>
 
