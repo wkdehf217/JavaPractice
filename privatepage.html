@@ -18,12 +18,12 @@
             font-family: 'Poor Story', cursive;
         }
 
-        .title {
+        /* .title {
             height: 250px;
             background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmwGNz%2FbtswgWfPtWV%2FLcakYRJkKhpmdJ5Lnawmwk%2Fimg.gif');
             background-position: center;
             background-size: cover;
-        }
+        } */
 
         .profile {
             display: flex;
@@ -55,12 +55,40 @@
             display: flex;
             flex-direction: column;
         }
-
+/* 
         .preface {
             display: flex;
             flex-direction: row;
             justify-content: center;
             margin-top: 15px;
+        } */
+
+        .preface {
+            background-color: rgba(255, 255, 255, 0.747);;
+            color: rgba(253, 212, 218, 0.773);
+            height: 550px;
+
+            /* 내용물을 정렬 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlrbAL%2Fbtsxp2ZAW6b%2FcnmFgDeSC1tTgtgWtXLjH1%2Fimg.gif');
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* 회원추가페이지 상단 글자 변경 */
+        .preface>button {
+            background-color: rgba(255, 255, 255, 0.747);
+            color: rgb(0, 0, 0);
+            border: none;
+            font-size: 60px;
+            width: 470px;
+            height: 150px;
+            margin-bottom: 300px;
+            border-radius: 15px;
         }
 
         .advantages {
@@ -102,12 +130,15 @@
 </head>
 
 <body>
-    <div class="title"> </div>
+    <!-- <div class="title"> </div> -->
+        <div class="preface">
+            <!-- <h1>부끄사 개인 소개</h1> 버튼으로 변경-->
+            <button>부끄사 개인 소개</button>
+        </div>
+
     <div class="frame">
 
-        <div class="preface">
-            <h1>부끄사 개인 소개</h1>
-        </div>
+
 
         <div class="profile">
             <img id="picture" src="https://ca.slack-edge.com/T043597JK8V-U05S9LVU9D0-39a8b2922ea3-512">

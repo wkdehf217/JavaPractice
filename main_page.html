@@ -52,6 +52,18 @@
         }
 
 
+        /* 회원추가페이지 상단 글자 변경 */
+        .mytitle>button {
+            background-color: rgba(255, 255, 255, 0.747);
+            color: rgb(0, 0, 0);
+            border: none;
+            font-size: 70px;
+            width: 400px;
+            height: 150px;
+            margin-bottom: 300px;
+            border-radius: 15px;
+        }
+
         .col {
             background-color: #DAEAF1;
             width: 1000px;
@@ -116,7 +128,7 @@
 
         #teamperson_exp {
             width: 220px;
-            height: 300px; 
+            height: 300px;
             object-fit: cover;
         }
 
@@ -236,7 +248,7 @@
         })
 
         /* 팀원 상세 페이지 이동 */
-        $(document).on('click', '#teamperson_exp', function() {
+        $(document).on('click', '#teamperson_exp', function () {
             alert("동작확인");
             window.location.href = 'privatepage.html'
 
@@ -279,7 +291,10 @@
 
 <body style="background-color: #FFE6E6">
     <div>
-        <h1 class="mytitle"> 부끄사</h1>
+        <div class="mytitle">
+        <button>부끄사</button>
+        </div>
+
     </div>
 
 
