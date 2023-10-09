@@ -1,6 +1,6 @@
 <!-- 내일 구현해야 하는 것
-1. date 내림차순 정렬
-2. 삭제 할 때 패스워드
+1. date 내림차순 정렬 (o)
+2. 삭제 할 때 패스워드 (o)
 3. 방명록 페이지 -->
 
 <!DOCTYPE html>
@@ -85,6 +85,10 @@
         border: solid rgb(218, 234, 241) 2px;
         border-radius: 3px;
       }
+
+      textarea {
+        resize: none;
+      }
     </style>
     <script type="module">
       // Firebase SDK 라이브러리 가져오기
@@ -134,7 +138,6 @@
             let password = row["password"];
             let text = row["content"];
             let date = row["date"];
-            console.log(row);
 
             let element = `
                   <div class="guestbook_content">
@@ -145,7 +148,7 @@
                       </div>
                       <button type="button" class="btn delete_btn">삭제</button>
                     </div>
-                      <p class="guestbook_text">${text}</p>
+                      <p class="guestbook_text" >${text}</p>
                   </div>
               `;
             $(".guestbook").append(element);
@@ -204,32 +207,50 @@
             .firstElementChild.lastElementChild;
         const target_date = node.innerHTML;
 
+        //비밀번호 입력
+        const password = prompt("비밀번호를 입력해주세요.");
+
+        //데이터베이스에서 등록 날짜, 비밀번호 대조해서 나온 데이터 q에 저장
         const q = query(
           collection(db, "guest_book"),
-          where("date", "==", target_date)
-        );
-        console.log(q);
+          where("date", "==", target_date),
+          where("password","==",password)
+        );  
+        
 
         // 해당 쿼리를 실행하여 문서를 가져옴
         const querySnapshot = await getDocs(q);
+        
+        // 비밀번호가 맞았을 경우 a는 True 아니면 False
+        let a = false;
 
         // 각 문서에 대해 삭제 작업 수행
         querySnapshot.forEach(async (doc) => {
+          a = true;
+          console.log(a);
           try {
             // 문서 삭제
             await deleteDoc(doc.ref);
+            console.log(doc.ref);
 
             console.log("Document successfully deleted!");
           } catch (error) {
+            console.log("asdasd");
             console.error("Error deleting document:", error);
           }
 
           // 삭제 완료 메시지 출력
           alert("삭제 완료!");
 
-          // 페이지 새로고침
+          // 페이지 새로고침 후 함수 탈출
           window.location.reload();
+          return;
         });
+        
+        // 위에서 삭제가 이루어지지 않은 경우 -> 비밀번호 틀림
+        if (a == false){
+          alert("비번 틀린");
+        }
       });
     </script>
   </head>
