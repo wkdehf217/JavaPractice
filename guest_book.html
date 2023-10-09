@@ -3,7 +3,6 @@
 2. 삭제 할 때 패스워드
 3. 방명록 페이지 -->
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,6 +25,7 @@
     <style>
       .guestbook {
         display: flex;
+
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -33,13 +33,20 @@
       .guestbook_content {
         justify-content: center;
         width: 800px;
-        height: 50px;
+        height: auto;
         margin: 10px 30px 10px 30px;
+      }
+      .guestbook_content > div {
+        display: flex;
+        justify-content: space-between;
+      }
+      .delete_btn {
+        background-color: rgb(218, 234, 241);
       }
 
       .guestbook_name {
         display: inline-block;
-        width: 50px;
+        width: 100px;
         /*background-color: green;*/
       }
       .guestbook_date {
@@ -86,6 +93,8 @@
       import {
         collection,
         addDoc,
+        query,
+        orderBy,
       } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
       import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
@@ -108,15 +117,40 @@
       // 팀원 이름 테스트 변수 설정
       let test_name = "김민성";
 
-      useEffect(() => {
-        async function fetchBoards() {
-          const board = collection(getFirestore(firebaseApp), "guest_book");
-          const result = await getDocs(query(board, orderBy("date", "desc")));
-          const boards = result.docs.map((el) => el.data());
-          setFireData(boards);
-        }
-        fetchBoards();
-      }, []);
+      //등록 시간 순서대로 정렬 후 화면에 출력
+      async function guest_book_upload() {
+        const guest_book = collection(db, "guest_book");
+        const result = await getDocs(
+          query(guest_book, orderBy("date", "desc"))
+        );
+        const guest_books = result.docs.map((el) => el.data());
+
+        guest_books.forEach((row) => {
+          if (row["member_name"] == test_name) {
+            let guest_name = row["guest_name"];
+            let password = row["password"];
+            let text = row["content"];
+            let date = row["date"];
+            console.log(row);
+
+            let element = `
+            <div class="guestbook_content">
+              <div>
+                <div>
+                <div class="guestbook_name">${guest_name}</div>
+                <div class="guestbook_date">${date}</div>
+                </div>
+                <button type="button" class="btn delete_btn">삭제</button>
+              </div>
+                <p class="guestbook_text">${text}</p>
+            </div>
+        `;
+            $(".guestbook").append(element);
+          }
+        });
+      }
+
+      guest_book_upload();
 
       // 입력받은 방명록을 데이터 베이스에 저장
       $("#resister_btn").click(async function () {
@@ -125,6 +159,13 @@
         let guest_name = $(".maker_name").val();
         let password = $(".maker_password").val();
         let text = $(".maker_text").val();
+
+        //닉네임이 6글자를 초과할 경우 페이지 새로고침, 경고창 출력
+        if (guest_name.length > 6) {
+          alert("닉네임은 6글자 이내로 작성해주세요!");
+          window.location.reload();
+          return;
+        }
 
         // 등록했을 때 날짜 가져오기
 
@@ -152,27 +193,6 @@
         alert("저장 완료!");
         window.location.reload();
       });
-
-      // 페이지 로딩 시 데이터 베이스에서 방명록 가져와서 화면에 보여주기
-      let docs = await getDocs(collection(db, "guest_book"));
-      docs.forEach((doc) => {
-        let row = doc.data();
-        if (row["member_name"] == test_name) {
-          let guest_name = row["guest_name"];
-          let password = row["password"];
-          let text = row["content"];
-          let date = row["date"];
-
-          let element = `
-            <div class="guestbook_content">
-        <div class="guestbook_name">${guest_name}</div>
-        <div class="guestbook_date">${date}</div>
-        <div class="guestbook_text">${text}</div>
-      </div>
-        `;
-          $(".guestbook").append(element);
-        }
-      });
     </script>
   </head>
   <body>
@@ -184,7 +204,10 @@
         <input class="maker_password" type="password" placeholder="비밀번호" />
       </div>
       <div class="maker_content">
-        <input class="maker_text" placeholder="내용을 입력하세요." />
+        <textarea
+          class="maker_text"
+          placeholder="내용을 입력하세요."
+        ></textarea>
         <button
           type="button"
           class="btn btn-secondary btn-lg"
