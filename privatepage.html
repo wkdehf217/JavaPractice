@@ -1,8 +1,7 @@
 <!--    1. 예쁘게 꾸미기    -민성
-        2. 돌아가기 구현   -민성
+        2. 돌아가기 구현   -민성(완료)
         3. 선택된 멤버 이름 가져오기 -민성
         4. 멤버 이름을 이용하여 데이터베이스에서 멤버 정보 가져오기. - 민석 -->
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -156,7 +155,7 @@
         display: flex;
         justify-content: space-between;
       }
-      .delete_btn {
+      .btn {
         background-color: rgb(218, 234, 241);
       }
 
@@ -205,6 +204,9 @@
       textarea {
         resize: none;
       }
+      #back_btn {
+        float: right;
+      }
       body {
         background-color: rgb(255, 230, 230);
       }
@@ -242,7 +244,6 @@
 
       // 팀원 이름 테스트 변수 설정
       let test_name = "김민성";
-
 
       //등록 시간 순서대로 정렬 후 화면에 출력
       async function guest_book_upload() {
@@ -370,6 +371,14 @@
           alert("비밀번호가 틀렸습니다.");
         }
       });
+
+      $("#back_btn").click(async function () {
+        let link = "main_page.html";
+
+        location.href = link;
+        location.replace(link);
+        window.open(link);
+      });
     </script>
   </head>
 
@@ -423,8 +432,7 @@
       </div>
       <div class="box21">www.blog</div>
 
-      <div class="guestbook"> 
-      </div>
+      <div class="guestbook"></div>
 
       <div class="guestbook_maker">
         <div class="maker_information">
@@ -450,5 +458,8 @@
         </div>
       </div>
     </div>
+    <button type="button" class="btn btn-secondary btn-lg" id="back_btn">
+      돌아가기
+    </button>
   </body>
 </html>
