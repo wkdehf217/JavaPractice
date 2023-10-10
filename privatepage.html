@@ -379,6 +379,14 @@
         location.replace(link);
         window.open(link);
       });
+
+      /* 메인페이지에서 이름정보 가지고 상세페이지로 */
+      window.onload = function(){
+        let na = localStorage.getItem("name");
+        alert(na);
+        localStorage.clear();
+  }
+
     </script>
   </head>
 
