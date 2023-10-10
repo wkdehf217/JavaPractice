@@ -147,10 +147,10 @@
 
         .team-item:hover .profile>button {
             opacity: 1;
-            background-color:#0a0a23;
+            background-color: #0a0a23;
             color: #fff;
-            border:none;
-            border-radius:10px;
+            border: none;
+            border-radius: 10px;
         }
 
         .profile:before {
@@ -203,14 +203,48 @@
             padding-bottom: 40px;
         }
 
-        .addbtn {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            color: white;
-            border: none;
+        /* 커스텀 버튼 */
+        .custom-btn {
+            width: auto;
+            height: 40px;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px 25px;
+            /* font-family: 'Lato', sans-serif; */
+            font-weight: 500;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            display: inline-block;
+            box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, .5),
+                7px 7px 20px 0px rgba(0, 0, 0, .1),
+                4px 4px 5px 0px rgba(0, 0, 0, .1);
+            outline: none;
         }
+
+        .add_btn {
+            width: 200px;
+            /* background-color: #259249; */
+            background-image: linear-gradient(315deg, #c797eb 0%, #c797eb 0%);
+            line-height: 42px;
+            padding: 0;
+            border: none;
+            margin-top: 20px;
+        }
+
+        .add_btn:hover:before {
+            height: 100%;
+        }
+
+        .add_btn:hover:after {
+            width: 100%;
+        }
+
+        .add_btn:hover {
+            background: rgba(253, 212, 218, 0.773);
+        }
+
     </style>
 
     <script type="module">
@@ -256,8 +290,8 @@
             const node =
                 event.target.parentElement.lastElementChild.firstElementChild;
             const name = node.innerHTML;
-            localStorage.setItem("name",name);
-            
+            localStorage.setItem("name", name);
+
             window.location.href = 'privatepage.html'
 
         })
@@ -373,7 +407,7 @@
 
 
     <div class="addteam">
-        <button id="adbtn" type="button" class="btn btn-secondary btn-lg">팀원 추가</button>
+        <button id="adbtn" type="button" class="custom-btn add_btn" style="background-color: pink;">팀원 추가</button>
     </div>
 
 
