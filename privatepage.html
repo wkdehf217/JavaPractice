@@ -1,61 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poor+Story&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Poor+Story&display=swap");
 
+      * {
+        font-family: "Poor Story", cursive;
+      }
 
-
-        * {
-            font-family: 'Poor Story', cursive;
-        }
-
-        /* .title {
+      /* .title {
             height: 250px;
             background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmwGNz%2FbtswgWfPtWV%2FLcakYRJkKhpmdJ5Lnawmwk%2Fimg.gif');
             background-position: center;
             background-size: cover;
         } */
 
-        .profile {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: flex-start;
+      .profile {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
 
-            margin: 100px 100px;
-        }
+        margin: 100px 100px;
+      }
 
-        #picture {
-            width: 400px;
-            margin-right: 60px;
-        }
+      #picture {
+        width: 400px;
+        margin-right: 60px;
+      }
 
-        .introduce>h2 {
-            margin: 0px;
-            font-size: 35px;
-        }
+      .introduce > h2 {
+        margin: 0px;
+        font-size: 35px;
+      }
 
-        .introduce>p {
-            font-weight: 300;
-            font-size: 16px;
-            margin-bottom: 40px;
-        }
+      .introduce > p {
+        font-weight: 300;
+        font-size: 16px;
+        margin-bottom: 40px;
+      }
 
-        .frame {
-            margin: 30px 150px;
-            display: flex;
-            flex-direction: column;
-        }
-/* 
+      .frame {
+        margin: 30px 150px;
+        display: flex;
+        flex-direction: column;
+      }
+      /* 
         .preface {
             display: flex;
             flex-direction: row;
@@ -63,118 +68,383 @@
             margin-top: 15px;
         } */
 
-        .preface {
-            background-color: rgba(255, 255, 255, 0.747);;
-            color: rgba(253, 212, 218, 0.773);
-            height: 550px;
+      .preface {
+        background-color: rgba(255, 255, 255, 0.747);
+        color: rgba(253, 212, 218, 0.773);
+        height: 550px;
 
-            /* 내용물을 정렬 */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        /* 내용물을 정렬 */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
-            background-image: url('https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlrbAL%2Fbtsxp2ZAW6b%2FcnmFgDeSC1tTgtgWtXLjH1%2Fimg.gif');
-            background-position: center;
-            background-size: cover;
-        }
+        background-image: url("https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlrbAL%2Fbtsxp2ZAW6b%2FcnmFgDeSC1tTgtgWtXLjH1%2Fimg.gif");
+        background-position: center;
+        background-size: cover;
+      }
 
-        /* 회원추가페이지 상단 글자 변경 */
-        .preface>button {
-            background-color: rgba(255, 255, 255, 0.747);
-            color: rgb(0, 0, 0);
-            border: none;
-            font-size: 60px;
-            width: 470px;
-            height: 150px;
-            margin-bottom: 300px;
-            border-radius: 15px;
-        }
+      /* 회원추가페이지 상단 글자 변경 */
+      .preface > button {
+        background-color: rgba(255, 255, 255, 0.747);
+        color: rgb(0, 0, 0);
+        border: none;
+        font-size: 60px;
+        width: 470px;
+        height: 150px;
+        margin-bottom: 300px;
+        border-radius: 15px;
+      }
 
-        .advantages {
-            display: flex;
-            justify-content: left;
+      .advantages {
+        display: flex;
+        justify-content: left;
 
-            margin-left: 100px;
-        }
+        margin-left: 100px;
+      }
 
-        .advantages>button {
-            text-align: left;
-            width: 100%;
-        }
+      .advantages > button {
+        text-align: left;
+        width: 100%;
+      }
 
-        .jobstyle {
-            display: flex;
-            justify-content: left;
+      .jobstyle {
+        display: flex;
+        justify-content: left;
 
-            margin-left: 100px;
-        }
+        margin-left: 100px;
+      }
 
-        .jobstyle>button {
-            text-align: left;
-            width: 100%;
-        }
+      .jobstyle > button {
+        text-align: left;
+        width: 100%;
+      }
 
-        .box21 {
-            margin-left: 100px;
-            padding: 2em;
-            border: solid 2px #A5A19A;
-            background-image: repeating-linear-gradient(-45deg, #f2f3f7 0, #f2f3f7 3px, transparent 3px, transparent 6px)
-            
-        }
+      .box21 {
+        margin-left: 100px;
+        padding: 2em;
+        border: solid 2px #a5a19a;
+        background-image: repeating-linear-gradient(
+          -45deg,
+          #f2f3f7 0,
+          #f2f3f7 3px,
+          transparent 3px,
+          transparent 6px
+        );
+      }
+/*---------------------------------------------------------*/
+      .guestbook {
+        display: flex;
 
-        body {
-            background-color: rgb(255, 230, 230);
-        }
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      .guestbook_content {
+        justify-content: center;
+        width: 800px;
+        height: auto;
+        margin: 10px 30px 10px 30px;
+      }
+      .guestbook_content > div {
+        display: flex;
+        justify-content: space-between;
+      }
+      .delete_btn {
+        background-color: rgb(218, 234, 241);
+      }
+
+      .guestbook_name {
+        display: inline-block;
+        width: 100px;
+        /*background-color: green;*/
+      }
+      .guestbook_date {
+        display: inline-block;
+        width: 300px;
+        /*background-color: red;*/
+      }
+      .maker_information {
+        display: flex;
+        flex-direction: column;
+      }
+      .maker_information > * {
+        margin: 0px 10px 10px 10px;
+      }
+      .guestbook_maker {
+        display: flex;
+        justify-content: center;
+        padding-top: 5px;
+      }
+      .maker_text {
+        width: 550px;
+        height: 200px;
+      }
+      .maker_content {
+        display: flex;
+        flex-direction: column;
+        justify-content: right;
+        align-items: end;
+      }
+      .register_btn {
+        margin-top: 10px;
+        width: 60px;
+        background-color: rgb(218, 234, 241);
+      }
+      .guestbook_content {
+        border: solid rgb(218, 234, 241) 2px;
+        border-radius: 3px;
+      }
+
+      textarea {
+        resize: none;
+      }
+      body {
+        background-color: rgb(255, 230, 230);
+      }
+
+
+      
     </style>
-</head>
+    <script type="module">
+        // Firebase SDK 라이브러리 가져오기
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import {
+          collection,
+          addDoc,
+          query,
+          orderBy,
+          deleteDoc,
+          doc,
+          where,
+        } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+        import { getDocs } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+  
+        // Firebase 구성 정보 설정
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyD7n4rJxoQvx9ZKH3HYxLkEeroMFydeQP0",
+          authDomain: "a-11-2e110.firebaseapp.com",
+          projectId: "a-11-2e110",
+          storageBucket: "a-11-2e110.appspot.com",
+          messagingSenderId: "192520789356",
+          appId: "1:192520789356:web:2324b1cdccc9bf383de749",
+          measurementId: "G-P93QHPYJC8",
+        };
+  
+        // Firebase 인스턴스 초기화
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+  
+        // 팀원 이름 테스트 변수 설정
+        let test_name = "김민성";
+  
+        //등록 시간 순서대로 정렬 후 화면에 출력
+        async function guest_book_upload() {
+          const guest_book = collection(db, "guest_book");
+          const result = await getDocs(
+            query(guest_book, orderBy("date", "desc"))
+          );
+          const guest_books = result.docs.map((el) => el.data());
+  
+          guest_books.forEach((row) => {
+            if (row["member_name"] == test_name) {
+              let guest_name = row["guest_name"];
+              let password = row["password"];
+              let text = row["content"];
+              let date = row["date"];
+  
+              let element = `
+                    <div class="guestbook_content">
+                      <div>
+                        <div>
+                        <div class="guestbook_name">${guest_name}</div>
+                        <div class="guestbook_date">${date}</div>
+                        </div>
+                        <button type="button" class="btn delete_btn">삭제</button>
+                      </div>
+                        <p class="guestbook_text" >${text}</p>
+                    </div>
+                `;
+              $(".guestbook").append(element);
+            }
+          });
+        }
+  
+        guest_book_upload();
+  
+        // 입력받은 방명록을 데이터 베이스에 저장
+        $("#resister_btn").click(async function () {
+          console.log("good");
+          let member_name = test_name;
+          let guest_name = $(".maker_name").val();
+          let password = $(".maker_password").val();
+          let text = $(".maker_text").val();
+  
+          //닉네임이 6글자를 초과할 경우 페이지 새로고침, 경고창 출력
+          if (guest_name.length > 6) {
+            alert("닉네임은 6글자 이내로 작성해주세요!");
+            window.location.reload();
+            return;
+          }
+  
+          // 등록했을 때 날짜 가져오기
+  
+          let today = new Date();
+          let year = today.getFullYear();
+          let month = ("0" + (today.getMonth() + 1)).slice(-2);
+          let day = ("0" + today.getDate()).slice(-2);
+          let hour = today.getHours();
+          let minute = today.getMinutes();
+          let second = today.getSeconds();
+          console.log(hour, minute, second);
+  
+          let dateString = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+  
+          let doc = {
+            member_name: member_name,
+            guest_name: guest_name,
+            password: password,
+            content: text,
+            date: dateString,
+          };
+  
+          await addDoc(collection(db, "guest_book"), doc);
+  
+          alert("저장 완료!");
+          window.location.reload();
+        });
+  
+        // 삭제 버튼 눌렀을 때 데이터 베이스에서 방명록 데이터 삭제
+        $(document).on("click", ".delete_btn", async function (event) {
+          const node =
+            event.target.parentElement.parentElement.firstElementChild
+              .firstElementChild.lastElementChild;
+          const target_date = node.innerHTML;
+  
+          //비밀번호 입력
+          const password = prompt("비밀번호를 입력해주세요.");
+  
+          //데이터베이스에서 등록 날짜, 비밀번호 대조해서 나온 데이터 q에 저장
+          const q = query(
+            collection(db, "guest_book"),
+            where("date", "==", target_date),
+            where("password","==",password)
+          );  
+          
+  
+          // 해당 쿼리를 실행하여 문서를 가져옴
+          const querySnapshot = await getDocs(q);
+          
+          // 비밀번호가 맞았을 경우 a는 True 아니면 False
+          let a = false;
+  
+          // 각 문서에 대해 삭제 작업 수행
+          querySnapshot.forEach(async (doc) => {
+            a = true;
+            console.log(a);
+            try {
+              // 문서 삭제
+              await deleteDoc(doc.ref);
+              console.log(doc.ref);
+  
+              console.log("Document successfully deleted!");
+            } catch (error) {
+              console.log("asdasd");
+              console.error("Error deleting document:", error);
+            }
+  
+            // 삭제 완료 메시지 출력
+            alert("삭제 완료!");
+  
+            // 페이지 새로고침 후 함수 탈출
+            window.location.reload();
+            return;
+          });
+          
+          // 위에서 삭제가 이루어지지 않은 경우 -> 비밀번호 틀림
+          if (a == false){
+            alert("비밀번호가 틀렸습니다.");
+          }
+        });
+      </script>
+  </head>
 
-<body>
+  <body>
     <!-- <div class="title"> </div> -->
-        <div class="preface">
-            <!-- <h1>부끄사 개인 소개</h1> 버튼으로 변경-->
-            <button>부끄사 개인 소개</button>
-        </div>
+    <div class="preface">
+      <!-- <h1>부끄사 개인 소개</h1> 버튼으로 변경-->
+      <button>부끄사 개인 소개</button>
+    </div>
 
     <div class="frame">
+      <div class="profile">
+        <img
+          id="picture"
+          src="https://ca.slack-edge.com/T043597JK8V-U05S9LVU9D0-39a8b2922ea3-512"
+        />
+        <div class="introduce">
+          <h2>이름</h2>
+          <p>김민석</p>
 
+          <h2>MBTI</h2>
+          <p>ENTP</p>
 
-
-        <div class="profile">
-            <img id="picture" src="https://ca.slack-edge.com/T043597JK8V-U05S9LVU9D0-39a8b2922ea3-512">
-            <div class="introduce">
-                <h2>이름</h2>
-                <p>김민석</p>
-
-                <h2>MBTI</h2>
-                <p>ENTP</p>
-
-                <h2>자기소개</h2>
-                <p>"안녕하세요 김민석입니다." <br>저는 95년생이고 블라블라한 직장을 다니다가 블라블라한 이유로 퇴사하고
-                    현재 스파르타코딩클럽에 국비교육을 지원해 Spring과정을 수강중이에요. 특기는 블라블라이고 블라블라한
-                    취미를 가지고 있습니다. 앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !
-                    앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !
-                    앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !
-                    앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !
-                </p>
-            </div>
+          <h2>자기소개</h2>
+          <p>
+            "안녕하세요 김민석입니다." <br />저는 95년생이고 블라블라한 직장을
+            다니다가 블라블라한 이유로 퇴사하고 현재 스파르타코딩클럽에
+            국비교육을 지원해 Spring과정을 수강중이에요. 특기는 블라블라이고
+            블라블라한 취미를 가지고 있습니다. 앞으로 잘 부탁드리겠습니다
+            !앞으로 잘 부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 ! 앞으로 잘
+            부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘
+            부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 ! 앞으로 잘
+            부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !앞으로 잘
+            부탁드리겠습니다 ! 앞으로 잘 부탁드리겠습니다 !앞으로 잘
+            부탁드리겠습니다 !앞으로 잘 부탁드리겠습니다 !
+          </p>
         </div>
+      </div>
 
-        <div class="advantages">
-            <button type="button" class="btn btn-secondary">내 장점은?</button>
-        </div>
-        <div class="box21">
-            거 죽기 딱 좋은 날씨다.
-        </div>
+      <div class="advantages">
+        <button type="button" class="btn btn-secondary">내 장점은?</button>
+      </div>
+      <div class="box21">거 죽기 딱 좋은 날씨다.</div>
 
-        <div class="jobstyle">
-            <button type="button" class="btn btn-secondary">내 협업 스타일!</button>
-        </div>
-        <div class="box21">
-            내 꿈은 해적왕
-        </div>
+      <div class="jobstyle">
+        <button type="button" class="btn btn-secondary">내 협업 스타일!</button>
+      </div>
+      <div class="box21">내 꿈은 해적왕</div>
+      <div class="bloglink jobstyle">
+        <button type="button" class="btn btn-secondary">블로그 링크</button>
+      </div>
+      <div class="box21">www.blog</div>
+      <div class="guestbook"></div>
 
+      <div class="guestbook_maker">
+        <div class="maker_information">
+          <input class="maker_name" placeholder="닉네임" />
+          <input
+            class="maker_password"
+            type="password"
+            placeholder="비밀번호"
+          />
+        </div>
+        <div class="maker_content">
+          <textarea
+            class="maker_text"
+            placeholder="내용을 입력하세요."
+          ></textarea>
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg"
+            id="resister_btn"
+          >
+            등록
+          </button>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
