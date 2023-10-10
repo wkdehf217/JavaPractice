@@ -208,11 +208,11 @@
       padding: 10px 10px 10px 10px;
     }
 
-    .guestbook_content>div {      
+    .guestbook_content>div {
       display: flex;
       justify-content: space-between;
     }
-    
+
     /* 방명록 삭제버튼 */
     .delete_btn {
       width: 50px;
@@ -281,16 +281,16 @@
       background-color: rgb(218, 234, 241);
     }
 
-    
+
 
     textarea {
       resize: none;
     }
 
-/* 커스텀 버튼으로 변경 */
-     #back_btn {
+    /* 커스텀 버튼으로 변경 */
+    #back_btn {
       float: right;
-    } 
+    }
 
     body {
       background-color: rgb(255, 230, 230);
@@ -537,9 +537,13 @@
       </div>
     </div>
   </div>
-  <button type="button" class="custom-btn btn-8" id="back_btn">
-    돌아가기
-  </button>
+  <!-- 돌아가기 버튼 우측하단 고정 -->
+  <div style="position: fixed; bottom: 5px; right: 5px;">
+    <button type="button" class="custom-btn btn-8" id="back_btn">
+      돌아가기
+    </button>
+  </div>
+
 </body>
 
 </html>
